@@ -1,17 +1,29 @@
 import { useState } from 'react';
 import { StyleSheet, SafeAreaView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-export default function LoginScreen({navigation}) {
+export default function RegisterScreen({navigation}) {
 
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.title_wrap}>
-                <Text style={styles.title_text}>Login</Text>
+                <Text style={styles.title_text}>Register</Text>
             </View>
             <View style={styles.total_input_wrap}>
+                <View style={styles.input_wrap}>
+                    <Text style={styles.input_text}>Username*</Text>
+                    <TextInput
+                        style={styles.input}
+                        placeholder='John Doe'
+                        placeholderTextColor={'#999'}
+                        value={username}
+                        onChangeText={(text) => setUsername(text)}
+                    />
+                </View>
+                <View style={styles.middle}></View>
                 <View style={styles.input_wrap}>
                     <Text style={styles.input_text}>Email Address*</Text>
                     <TextInput
@@ -37,12 +49,12 @@ export default function LoginScreen({navigation}) {
             </View>
             <View style={styles.btn_wrap}>
                 <TouchableOpacity style={styles.btn} onPress={() => console.log('hiffs')}>
-                    <Text style={styles.btn_text}> Login </Text>
+                    <Text style={styles.btn_text}> Register </Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.account_wrap}>
                 <Text style={styles.account_text}>
-                    Don't have an account? <Text style={styles.account_underline} onPress={() => navigation.navigate('RegisterScreen')}>Register</Text> 
+                    Already have an account? <Text style={styles.account_underline} onPress={() => navigation.navigate('LoginScreen')}>Login</Text> 
                 </Text>
             </View>
         </SafeAreaView>
@@ -58,10 +70,11 @@ const styles = StyleSheet.create({
         backgroundColor: "#18252E",
     },
     title_wrap: {
-        flex: 1.2,
+        flex: 1.4,
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 25,
+        marginBottom: 5,
     },
     title_text: {
         color: 'white',
@@ -69,7 +82,7 @@ const styles = StyleSheet.create({
         fontWeight: '700',
     },
     total_input_wrap: {
-        flex: 1.2,
+        flex: 2.65,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -82,6 +95,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'center',
         margin: 10,
+        marginBottom: 15,
     },
     input_text: {
         color: '#DDD',
@@ -101,13 +115,13 @@ const styles = StyleSheet.create({
         borderRadius: 6,
     },
     btn_wrap: {
-        flex: 1,
+        flex: 1.2,
         alignItems: 'center',
         justifyContent: 'center',
     },
     btn: {
         width: 300,
-        backgroundColor: '#086972',
+        backgroundColor: '#802d2d',
         padding: 15,
         margin: 10,
         borderRadius: 10,

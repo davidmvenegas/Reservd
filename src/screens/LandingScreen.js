@@ -1,11 +1,12 @@
 import { StyleSheet, SafeAreaView, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { increment, decrement } from '../redux/actions/countAction';
+import LinearGradient from 'react-native-linear-gradient';
 import CardboardBox from '../assets/cardboard_box.png'
 import Arrow from '../assets/arrow.png'
 import Lock from '../assets/lock.png'
 
-export default function LandingScreen() {
+export default function LandingScreen({navigation}) {
     const dispatch = useDispatch();
     const count = useSelector((store) => store.count.count);
 
@@ -33,13 +34,11 @@ export default function LandingScreen() {
             </View>
 
             <View style={styles.btn_wrap}>
-                <TouchableOpacity onPress={handleIncrement} style={styles.btn}>
+                <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')} style={styles.btn}>
                     <Text style={styles.btn_text}> Login </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity
-                    onPress={handleDecrement}
-                    style={{ ...styles.btn, backgroundColor: '#6e3b3b' }}>
+                <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')} style={{ ...styles.btn, backgroundColor: '#802d2d' }}>
                     <Text style={styles.btn_text}> Register </Text>
                 </TouchableOpacity>
             </View>
@@ -55,61 +54,61 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         height: '100%',
         width: '100%',
-        background: 'linear-gradient(to bottom, #282828 0 %, #111 80 % )',
-        // backgroundColor: '#18252E',
+        backgroundColor: '#18252E',
     },
     title_wrap: {
-        flex: 2,
+        flex: 1.8,
         alignItems: 'center',
         justifyContent: 'center',
     },
     title_text: {
         color: 'white',
-        fontSize: 55,
+        fontSize: 57.5,
         fontWeight: '800',
     },
     title_period: {
         color: '#01BA84',
-        fontSize: 65,
+        fontSize: 67.5,
     },
     image_wrap: {
-        flex: 1,
+        flex: .65,
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
     },
     box_image: {
-        width: 80,
-        height: 80,
+        width: 72,
+        height: 72,
     },
     arrow_image: {
-        width: 75,
-        height: 35,
+        width: 55,
+        height: 25,
         marginLeft: 25,
         marginRight: 25,
     },
     lock_image: {
-        width: 70,
-        height: 105,
+        width: 60,
+        height: 90,
     },
     description_wrap: {
-        flex: 1.5,
+        flex: 1.6,
         alignItems: 'center',
         justifyContent: 'center',
     },
     description_text_1: {
         color: 'white',
-        fontSize: 26,
+        fontSize: 27,
         fontWeight: '400',
         textAlign: 'center',
-        lineHeight: '35',
+        lineHeight: '50',
     },
     description_text_2: {
         color: 'white',
-        fontSize: 23,
+        fontSize: 22,
         fontWeight: '200',
         textAlign: 'center',
-        lineHeight: '33',
+        lineHeight: '35',
+        fontStyle: 'italic'
     },
     btn_wrap: {
         flex: 1.8,
@@ -118,7 +117,7 @@ const styles = StyleSheet.create({
         marginBottom: 50,
     },
     btn: {
-        width: 200,
+        width: 250,
         backgroundColor: '#086972',
         padding: 20,
         paddingLeft: 15,
