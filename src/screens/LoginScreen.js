@@ -36,7 +36,7 @@ export default function LoginScreen({navigation}) {
                 </View>
             </View>
             <View style={styles.btn_wrap}>
-                <TouchableOpacity style={styles.btn} onPress={() => console.log('hiffs')}>
+                <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('HomeScreen')}>
                     <Text style={styles.btn_text}> Login </Text>
                 </TouchableOpacity>
             </View>

@@ -54,7 +54,7 @@ export default function RegisterScreen({navigation}) {
             </View>
             <View style={styles.account_wrap}>
                 <Text style={styles.account_text}>
-                    Already have an account? <Text style={styles.account_underline} onPress={() => navigation.navigate('LoginScreen')}>Login</Text> 
+                    Already have an account? <Text style={styles.account_underline} onPress={() => navigation.navigate('HomeScreen')}>Login</Text> 
                 </Text>
             </View>
         </SafeAreaView>
