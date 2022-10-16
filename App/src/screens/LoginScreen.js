@@ -1,9 +1,18 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from '../redux/actions/userActions';
 import { StyleSheet, SafeAreaView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function LoginScreen({navigation}) {
+    const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    function handleLogin() {
+        if (email !== '' && password !== '') {
+            dispatch(login({payload: 'TEST_USER_ID'}));
+        }
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -35,7 +44,7 @@ export default function LoginScreen({navigation}) {
                 </View>
             </View>
             <View style={styles.btn_wrap}>
-                <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('HomeScreen')}>
+                <TouchableOpacity style={styles.btn} onPress={handleLogin}>
                     <Text style={styles.btn_text}> Login </Text>
                 </TouchableOpacity>
             </View>
@@ -88,7 +97,7 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
     },
     input: {
-        color: '#11acba',
+        color: 'white',
         fontSize: 16,
         width: 300,
         height: 58,

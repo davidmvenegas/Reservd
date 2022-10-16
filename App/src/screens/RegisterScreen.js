@@ -1,10 +1,19 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from '../redux/actions/userActions';
 import { StyleSheet, SafeAreaView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function RegisterScreen({navigation}) {
+    const dispatch = useDispatch();
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    function handleRegister() {
+        if (username !== '' && email !== '' && password !== '') {
+            dispatch(login({ payload: {userId: 'TEST_USER_ID'}}));
+        }
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -47,7 +56,7 @@ export default function RegisterScreen({navigation}) {
                 </View>
             </View>
             <View style={styles.btn_wrap}>
-                <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('HomeScreen')}>
+                <TouchableOpacity style={styles.btn} onPress={handleRegister}>
                     <Text style={styles.btn_text}> Register </Text>
                 </TouchableOpacity>
             </View>
@@ -102,7 +111,7 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
     },
     input: {
-        color: '#11acba',
+        color: 'white',
         fontSize: 16,
         width: 300,
         height: 58,

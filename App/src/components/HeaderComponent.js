@@ -1,9 +1,11 @@
-import { StyleSheet, Text, TouchableOpacity, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Dimensions, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { notifications, profile } from '../redux/actions/navigationAction';
 import IIcon from 'react-native-vector-icons/Ionicons';
 import FAIcon from 'react-native-vector-icons/FontAwesome5';
+import Logo from '../assets/MAIN_LOGO.png'
+
 
 export default function HeaderComponent() {
     const navigation = useNavigation();
@@ -23,14 +25,14 @@ export default function HeaderComponent() {
         <View style={styles.container}>
             <View style={styles.wrap}>
                 <View style={styles.text_wrap}>
-                    <Text style={styles.username_text}>Welcome Back, John</Text>
+                    <Image style={styles.title_image} source={Logo}/>
                 </View>
                 <View style={styles.image_wrap}>
                     <TouchableOpacity onPress={handleNotificationsClick}>
-                        <IIcon style={styles.notification_image} name="ios-notifications" size={28} color={location === 'NOTIFICATIONS_SCREEN' ? '#0099ff' : '#999'} />
+                        <IIcon style={styles.notification_image} name="ios-notifications" size={28} color={location === 'NOTIFICATIONS_SCREEN' ? '#0099ff' : '#fff'} />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={handleProfileClick}>
-                        <FAIcon style={styles.profile_image} name="user-alt" size={23} color={location === 'PROFILE_SCREEN' ? '#0099ff' : '#999'} />
+                        <FAIcon style={styles.profile_image} name="user-alt" size={23} color={location === 'PROFILE_SCREEN' ? '#0099ff' : '#fff'} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -65,10 +67,9 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         flexDirection: 'row',
     },
-    username_text: {
-        color: '#fff',
-        fontSize: 18,
-        fontWeight: '300',
+    title_image: {
+        width: 160,
+        height: 19,
     },
     image_wrap: {
         flex: 1,

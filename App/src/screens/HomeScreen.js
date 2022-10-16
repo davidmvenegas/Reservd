@@ -1,4 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
+import { find, scan } from '../redux/actions/navigationAction';
 import { StyleSheet, SafeAreaView, Text, View, Dimensions, TouchableOpacity, Image, ScrollView } from 'react-native';
 import EIcon from 'react-native-vector-icons/Entypo';
 import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -7,7 +9,18 @@ import CardboardBox from '../assets/cardboard_box.png'
 import Lock from '../assets/lock.png'
 
 export default function LoginScreen() {
+    const dispatch = useDispatch();
     const navigation = useNavigation();
+
+    function handleGoToReserve() {
+        navigation.navigate('ReserveScreen');
+        dispatch(find());
+    }
+    function handleGoToUnlock() {
+        navigation.navigate('UnlockScreen');
+        dispatch(scan());
+    }
+
 
     return (
         <SafeAreaView style={styles.container}>
@@ -15,13 +28,13 @@ export default function LoginScreen() {
                 <View style={styles.section_1}>
                     <Text style={styles.title_text}>Quick Actions</Text>
                     <View style={styles.section_content_1}>
-                        <TouchableOpacity onPress={() => navigation.navigate('ReserveScreen')} style={{...styles.action_box, marginRight: 16}}>
+                        <TouchableOpacity onPress={handleGoToReserve} style={{...styles.action_box, marginRight: 16}}>
                             <View style={styles.image_box}>
                                 <Image style={styles.box_image} source={CardboardBox} />
                             </View>
                             <Text style={styles.action_text}>Reserve</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.action_box} onPress={() => navigation.navigate('UnlockScreen')}>
+                        <TouchableOpacity style={styles.action_box} onPress={handleGoToUnlock}>
                             <View style={styles.image_box}>
                                 <Image style={styles.lock_image} source={Lock} />
                             </View>
@@ -32,7 +45,6 @@ export default function LoginScreen() {
                 <View style={styles.section_2}>
                     <Text style={styles.title_text}>My Boxes</Text>
                     <View style={styles.section_content_2}>
-                        <MyBox/>
                         <MyBox/>
                         <MyBox/>
                     </View>

@@ -18,11 +18,11 @@ export default function NavigationComponent({ navigation }) {
         dispatch(wallet());
     }
     function handleScanClick() {
-        navigation.navigate('ScanScreen');
+        navigation.navigate('UnlockScreen');
         dispatch(scan());
     }
     function handleFindClick() {
-        navigation.navigate('FindScreen');
+        navigation.navigate('ReserveScreen');
         dispatch(find());
     }
     function handleSettingsClick() {

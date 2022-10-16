@@ -1,26 +1,14 @@
 import { StyleSheet, SafeAreaView, View, Text, Image, TouchableOpacity } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement } from '../redux/actions/countAction';
 import CardboardBox from '../assets/cardboard_box.png'
 import Arrow from '../assets/arrow.png'
 import Lock from '../assets/lock.png'
+import Logo from '../assets/MAIN_LOGO.png'
 
 export default function LandingScreen({navigation}) {
-    const dispatch = useDispatch();
-    const count = useSelector((store) => store.count.count);
-
-    const handleIncrement = () => {
-        dispatch(increment());
-    };
-
-    const handleDecrement = () => {
-        dispatch(decrement());
-    };
-
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.title_wrap}>
-                <Text style={styles.title_text}>Reservd <Text style={styles.title_period}>.</Text></Text>
+                <Image style={styles.title_image} source={Logo}/>
             </View>
             <View style={styles.image_wrap}>
                 <Image style={styles.box_image} source={CardboardBox}/>
@@ -60,15 +48,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    title_text: {
-        color: 'white',
-        fontSize: 60,
-        fontWeight: '800',
-        letterSpacing: 1,
-    },
-    title_period: {
-        color: '#01BA84',
-        fontSize: 70,
+    title_image: {
+        width: 300,
+        height: 37,
     },
     image_wrap: {
         flex: .5,
