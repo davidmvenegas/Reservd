@@ -1,21 +1,24 @@
-import { StyleSheet, SafeAreaView, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import IIcon from 'react-native-vector-icons/Ionicons';
 import FAIcon from 'react-native-vector-icons/FontAwesome5';
 
 export default function Header({ navigation }) {
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <View style={styles.wrap}>
                 <View style={styles.text_wrap}>
                     <Text style={styles.username_text}>Good morning, John</Text>
                 </View>
                 <View style={styles.image_wrap}>
-                    <IIcon style={styles.notification_image} name="ios-notifications" size={30} color="#900" />
-                    <FAIcon style={styles.profile_image} name="user-alt" size={25} color="#100" />
+                    <TouchableOpacity>
+                        <IIcon style={styles.notification_image} name="ios-notifications" size={30} color="#900" />
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <FAIcon style={styles.profile_image} name="user-alt" size={25} color="#100" />
+                    </TouchableOpacity>
                 </View>
             </View>
-
-        </SafeAreaView>
+        </View>
     );
 };
 
@@ -42,7 +45,7 @@ const styles = StyleSheet.create({
     username_text: {
         color: '#fff',
         fontSize: 22,
-        fontWeight: '300'
+        fontWeight: '300',
     },
     image_wrap: {
         flex: 1,
@@ -53,12 +56,12 @@ const styles = StyleSheet.create({
     notification_image: {
         height: 30,
         width: 30,
-        color: '#63C7AD',
+        color: '#999',
         marginRight: 25,
     },
     profile_image: {
         height: 25,
         width: 25,
-        color: '#63C7AD',
+        color: '#999',
     },
 });

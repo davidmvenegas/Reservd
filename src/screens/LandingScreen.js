@@ -1,7 +1,6 @@
 import { StyleSheet, SafeAreaView, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { increment, decrement } from '../redux/actions/countAction';
-import LinearGradient from 'react-native-linear-gradient';
 import CardboardBox from '../assets/cardboard_box.png'
 import Arrow from '../assets/arrow.png'
 import Lock from '../assets/lock.png'
@@ -63,15 +62,16 @@ const styles = StyleSheet.create({
     },
     title_text: {
         color: 'white',
-        fontSize: 57.5,
+        fontSize: 60,
         fontWeight: '800',
+        letterSpacing: 1,
     },
     title_period: {
         color: '#01BA84',
-        fontSize: 67.5,
+        fontSize: 70,
     },
     image_wrap: {
-        flex: .65,
+        flex: .5,
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
