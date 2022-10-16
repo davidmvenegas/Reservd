@@ -2,7 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import IIcon from 'react-native-vector-icons/Ionicons';
 import FAIcon from 'react-native-vector-icons/FontAwesome5';
 
-export default function Header({ navigation }) {
+export default function HeaderComponent({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.wrap}>

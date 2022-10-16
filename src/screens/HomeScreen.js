@@ -1,21 +1,23 @@
+import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, SafeAreaView, Text, View, Dimensions, TouchableOpacity, Image, ScrollView } from 'react-native';
-import Header from '../components/Header'
-import Navigation from '../components/Navigation'
+import HeaderComponent from '../components/HeaderComponent';
 import EIcon from 'react-native-vector-icons/Entypo';
 import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MAIcon from 'react-native-vector-icons/MaterialIcons';
 import CardboardBox from '../assets/cardboard_box.png'
 import Lock from '../assets/lock.png'
 
-export default function LoginScreen({ navigation }) {
+export default function LoginScreen() {
+    const navigation = useNavigation();
+
     return (
         <SafeAreaView style={styles.container}>
-            <Header/>
+            <HeaderComponent/>
             <ScrollView>
                 <View style={styles.section_1}>
                     <Text style={styles.title_text}>Quick Actions</Text>
                     <View style={styles.section_content_1}>
-                        <TouchableOpacity style={{...styles.action_box, marginRight: 16}}>
+                        <TouchableOpacity onPress={() => navigation.navigate('ReserveScreen')} style={{...styles.action_box, marginRight: 16}}>
                             <View style={styles.image_box}>
                                 <Image style={styles.box_image} source={CardboardBox} />
                             </View>
@@ -38,7 +40,6 @@ export default function LoginScreen({ navigation }) {
                     </View>
                 </View>
             </ScrollView>
-            <Navigation/>
         </SafeAreaView>
     );
 };
@@ -158,7 +159,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flexDirection: 'column',
         borderRadius: 8,
-        marginBottom: 20,
+        marginBottom: 25,
         borderWidth: 2,
         borderColor: '#57737a',
     },

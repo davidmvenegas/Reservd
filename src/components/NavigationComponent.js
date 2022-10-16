@@ -1,4 +1,3 @@
-import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import { home, wallet, scan, find, settings } from '../redux/actions/navigationAction';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,36 +5,35 @@ import IIcon from 'react-native-vector-icons/Ionicons';
 import EIcon from 'react-native-vector-icons/Entypo';
 import AIcon from 'react-native-vector-icons/AntDesign';
 
-export default function LoginScreen() {
+export default function NavigationComponent({ navigation }) {
     const dispatch = useDispatch();
-    const navigation = useNavigation();
     const location = useSelector((store) => store.navigation.location);
 
     function handleHomeClick() {
         navigation.navigate('HomeScreen');
-        dispatch(home())
+        dispatch(home());
     }
     function handleWalletClick() {
-        // navigation.navigate('LoginScreen');
-        dispatch(wallet())
+        navigation.navigate('WalletScreen');
+        dispatch(wallet());
     }
     function handleScanClick() {
         // navigation.navigate('LoginScreen');
-        dispatch(scan())
+        dispatch(scan());
     }
     function handleFindClick() {
         // navigation.navigate('LoginScreen');
-        dispatch(find())
+        dispatch(find());
     }
     function handleSettingsClick() {
         // navigation.navigate('LoginScreen');
-        dispatch(settings())
+        dispatch(settings());
     }
 
     return (
         <View style={styles.container}>
             <View style={styles.wrap}>
-                <TouchableOpacity onPress={() => handleHomeClick()} style={location === 'HOME_SCREEN' ? [styles.title_wrap_highlighted] : [styles.title_wrap]}>
+                <TouchableOpacity onPress={handleHomeClick} style={location === 'HOME_SCREEN' ? [styles.title_wrap_highlighted] : [styles.title_wrap]}>
                     <IIcon name="home" size={33} color={location === 'HOME_SCREEN' ? '#900' : '#999'} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={handleWalletClick} style={location === 'WALLET_SCREEN' ? [styles.title_wrap_highlighted] : [styles.title_wrap]}>
@@ -57,11 +55,12 @@ export default function LoginScreen() {
 
 const styles = StyleSheet.create({
     container: {
-        height: 60,
+        height: 85,
         width: '100%',
         borderTopWidth: 2,
         borderColor: '#353e4f',
-        paddingBottom: 20,
+        paddingBottom: 45,
+        backgroundColor: "#18252E",
     },
     wrap: {
         flex: 1,

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { StyleSheet, SafeAreaView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function RegisterScreen({navigation}) {
-
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -48,13 +47,13 @@ export default function RegisterScreen({navigation}) {
                 </View>
             </View>
             <View style={styles.btn_wrap}>
-                <TouchableOpacity style={styles.btn} onPress={() => console.log('hiffs')}>
+                <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('HomeScreen')}>
                     <Text style={styles.btn_text}> Register </Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.account_wrap}>
                 <Text style={styles.account_text}>
-                    Already have an account? <Text style={styles.account_underline} onPress={() => navigation.navigate('HomeScreen')}>Login</Text> 
+                    Already have an account? <Text style={styles.account_underline} onPress={() => navigation.navigate('LoginScreen')}>Login</Text> 
                 </Text>
             </View>
         </SafeAreaView>

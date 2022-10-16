@@ -3,16 +3,15 @@ import { StyleSheet, SafeAreaView, Text, ScrollView } from 'react-native';
 import Header from '../components/HeaderComponent'
 import Navigation from '../components/NavigationComponent'
 
-export default function ReserveScreen() {
+export default function WalletScreen() {
     const navigation = useNavigation();
 
     return (
         <SafeAreaView style={styles.container}>
-            <Header />
+            <Header/>
             <ScrollView>
-                <Text>RESERVE</Text>
+                <Text>WALLET</Text>
             </ScrollView>
-            <Navigation />
         </SafeAreaView>
     );
 };
