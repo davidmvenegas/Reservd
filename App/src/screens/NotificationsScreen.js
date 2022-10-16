@@ -1,10 +1,10 @@
 import { StyleSheet, SafeAreaView, Text, ScrollView } from 'react-native';
 
-export default function UnlockScreen({ navigation }) {
+export default function NotificationsScreen({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
-                <Text>Unlock</Text>
+                <Text>Notifications</Text>
             </ScrollView>
         </SafeAreaView>
     );

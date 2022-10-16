@@ -18,15 +18,15 @@ export default function NavigationComponent({ navigation }) {
         dispatch(wallet());
     }
     function handleScanClick() {
-        // navigation.navigate('LoginScreen');
+        navigation.navigate('ScanScreen');
         dispatch(scan());
     }
     function handleFindClick() {
-        // navigation.navigate('LoginScreen');
+        navigation.navigate('FindScreen');
         dispatch(find());
     }
     function handleSettingsClick() {
-        // navigation.navigate('LoginScreen');
+        navigation.navigate('SettingsScreen');
         dispatch(settings());
     }
 
@@ -34,19 +34,19 @@ export default function NavigationComponent({ navigation }) {
         <View style={styles.container}>
             <View style={styles.wrap}>
                 <TouchableOpacity onPress={handleHomeClick} style={location === 'HOME_SCREEN' ? [styles.title_wrap_highlighted] : [styles.title_wrap]}>
-                    <IIcon name="home" size={33} color={location === 'HOME_SCREEN' ? '#900' : '#999'} />
+                    <IIcon name="home" size={33} color={location === 'HOME_SCREEN' ? '#0099ff' : '#999'} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={handleWalletClick} style={location === 'WALLET_SCREEN' ? [styles.title_wrap_highlighted] : [styles.title_wrap]}>
-                    <EIcon name="wallet" size={33} color={location === 'WALLET_SCREEN' ? '#900' : '#999'} />
+                    <EIcon name="wallet" size={33} color={location === 'WALLET_SCREEN' ? '#0099ff' : '#999'} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={handleScanClick} style={location === 'SCAN_SCREEN' ? [styles.title_wrap_highlighted] : [styles.title_wrap]}>
-                    <IIcon name="ios-scan-outline" size={33} color={location === 'SCAN_SCREEN' ? '#900' : '#999'} />
+                    <IIcon name="ios-scan-outline" size={33} color={location === 'SCAN_SCREEN' ? '#0099ff' : '#999'} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={handleFindClick} style={location === 'FIND_SCREEN' ? [styles.title_wrap_highlighted] : [styles.title_wrap]}>
-                    <AIcon name="find" size={33} color={location === 'FIND_SCREEN' ? '#900' : '#999'} />
+                    <AIcon name="find" size={33} color={location === 'FIND_SCREEN' ? '#0099ff' : '#999'} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={handleSettingsClick} style={location === 'SETTINGS_SCREEN' ? [styles.title_wrap_highlighted] : [styles.title_wrap]}>
-                    <IIcon name="settings-sharp" size={33} color={location === 'SETTINGS_SCREEN' ? '#900' : '#999'} />
+                    <IIcon name="settings-sharp" size={33} color={location === 'SETTINGS_SCREEN' ? '#0099ff' : '#999'} />
                 </TouchableOpacity>
             </View>
         </View>
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
         alignItems: 'center',
         justifyContent: 'flex-end',
-        borderColor: '#900',
+        borderColor: '#0099ff',
         borderTopWidth: 4,
     },
 });

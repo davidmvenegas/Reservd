@@ -1,14 +1,8 @@
-import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, SafeAreaView, Text, ScrollView } from 'react-native';
-import Header from '../components/HeaderComponent'
-import Navigation from '../components/NavigationComponent'
 
-export default function WalletScreen() {
-    const navigation = useNavigation();
-
+export default function WalletScreen({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
-            <Header/>
             <ScrollView>
                 <Text>WALLET</Text>
             </ScrollView>

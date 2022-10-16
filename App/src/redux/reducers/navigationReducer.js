@@ -29,6 +29,16 @@ export default (state = initialState, action) => {
                 ...state,
                 location: 'SETTINGS_SCREEN',
             };
+        case 'NOTIFICATIONS_SCREEN':
+            return {
+                ...state,
+                location: 'NOTIFICATIONS_SCREEN',
+            };
+        case 'PROFILE_SCREEN':
+            return {
+                ...state,
+                location: 'PROFILE_SCREEN',
+            };
         default:
             return state;
     }

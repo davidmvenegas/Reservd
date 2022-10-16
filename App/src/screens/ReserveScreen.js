@@ -1,18 +1,11 @@
-import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, SafeAreaView, Text, ScrollView } from 'react-native';
-import Header from '../components/HeaderComponent'
-import Navigation from '../components/NavigationComponent'
 
-export default function ReserveScreen() {
-    const navigation = useNavigation();
-
+export default function ReserveScreen({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
-            <Header />
             <ScrollView>
-                <Text>RESERVE</Text>
+                <Text>Reserve</Text>
             </ScrollView>
-            <Navigation />
         </SafeAreaView>
     );
 };
