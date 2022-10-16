@@ -23,3 +23,13 @@ export const settings = () => {
         type: 'SETTINGS_SCREEN',
     };
 };
+export const notifications = () => {
+    return {
+        type: 'NOTIFICATIONS_SCREEN',
+    };
+};
+export const profile = () => {
+    return {
+        type: 'PROFILE_SCREEN',
+    };
+};

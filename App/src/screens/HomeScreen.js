@@ -1,6 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, SafeAreaView, Text, View, Dimensions, TouchableOpacity, Image, ScrollView } from 'react-native';
-import HeaderComponent from '../components/HeaderComponent';
 import EIcon from 'react-native-vector-icons/Entypo';
 import MIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MAIcon from 'react-native-vector-icons/MaterialIcons';
@@ -12,7 +11,6 @@ export default function LoginScreen() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <HeaderComponent/>
             <ScrollView>
                 <View style={styles.section_1}>
                     <Text style={styles.title_text}>Quick Actions</Text>
@@ -23,7 +21,7 @@ export default function LoginScreen() {
                             </View>
                             <Text style={styles.action_text}>Reserve</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.action_box}>
+                        <TouchableOpacity style={styles.action_box} onPress={() => navigation.navigate('UnlockScreen')}>
                             <View style={styles.image_box}>
                                 <Image style={styles.lock_image} source={Lock} />
                             </View>
